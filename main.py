@@ -5,6 +5,30 @@ import plotly.express as px
 import streamlit as st
 from datetime import datetime
 
+#Define Functions 
+def style_negative(v, props=''):
+    """ Style negative values in dataframe"""
+    try: 
+        return props if v < 0 else None
+    except:
+        pass
+    
+def style_positive(v, props=''):
+    """Style positive values in dataframe"""
+    try: 
+        return props if v > 0 else None
+    except:
+        pass    
+    
+def audience_simple(country):
+    """Show top represented countries"""
+    if country == 'US':
+        return 'USA'
+    elif country == 'IN':
+        return 'India'
+    else:
+        return 'Other'
+    
 #load data
 @st.cache
 def load_data():
